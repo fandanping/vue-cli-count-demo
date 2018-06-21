@@ -65,7 +65,7 @@
       }
     },
     methods:{
-      //全选
+      //全选与反选
       selectAll:function(){
         if (this.checked) {
           this.checkedNames = [];
