@@ -26,25 +26,21 @@
           {
             name: 'Web Development',
             price: 300,
-            active:false,
             count:1,
             select:false
           },{
             name: 'Design',
             price: 400,
-            active:false,
             count:1,
             select:false
           },{
             name: 'Integration',
             price: 250,
-            active:false,
             count:1,
             select:false
           },{
             name: 'Training',
             price: 220,
-            active:false,
             count:1,
             select:false
           }
@@ -57,11 +53,9 @@
              return val.select ==true;
            })
            var totalPrice=0;
-
            for(var i=0,len=proList.length;i<len;i++){
-
              totalPrice +=proList[i].price *proList[i].count;
-   /*          console.log(proList[i].price);
+          /*  console.log(proList[i].price);
              console.log(proList[i].count);
              console.log(totalPrice);*/
            }
@@ -74,14 +68,19 @@
       //全选
       selectAll:function(){
         if (this.checked) {
-          this.checkedNames = []
+          this.checkedNames = [];
+          for(var i=0;i<this.items.length;i++){
+            this.items[i].select=false;
+          }
         } else {
           this.checkedNames = this.checkedArr
+          for(var i=0;i<this.items.length;i++){
+            this.items[i].select=true;
+          }
         }
       },
       addCount:function(index){
         this.items[index].count++;
-
       },
       decCount:function(index){
         if(this.items[index].count>0){
@@ -111,19 +110,13 @@
       }
     },
     mounted: function () {
-   /*   var _this=this;
-      //为productList添加select（是否选中）字段，初始值为true
-      this.items.map(function (item) {
-        _this.$set(item, 'select', true);
-      })*/
+
     }
   }
 </script>
 <style>
-
   ul li{
     list-style: none;
-
   }
   ul li span{
     display: inline-block;
